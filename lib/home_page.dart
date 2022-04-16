@@ -10,24 +10,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // This holds a list of fiction users
-  // You can use data fetched from a database or a server as well
-
   List<Map<String, dynamic>> selectedClasses = [];
-
   String dropdownvalue = '5';
-
-  // List of items in our dropdown menu
-  var items = [
-    '3',
-    '4',
-    '5',
-  ];
+  var items = ['3', '4', '5'];
 
   @override
   initState() {
-    // at the beginning, all users are shown
-
     super.initState();
   }
 
@@ -43,7 +31,7 @@ class _HomePageState extends State<HomePage> {
             child: Center(
                 child: SingleChildScrollView(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                // mainAxisAlignment: MainAxisAlignment.start,
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Row(
@@ -52,7 +40,8 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                             padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                             decoration: BoxDecoration(
-                              border: Border.all(width: 1.0),
+                              border: Border.all(
+                                  width: 1.0, color: Color(0xFF3b3b3b)),
                               borderRadius: BorderRadius.all(Radius.circular(
                                       10.0) //                 <--- border radius here
                                   ),
@@ -67,7 +56,9 @@ class _HomePageState extends State<HomePage> {
                                         padding: const EdgeInsets.fromLTRB(
                                             0, 10, 0, 10),
                                         decoration: BoxDecoration(
-                                          border: Border.all(width: 1.0),
+                                          border: Border.all(
+                                              width: 1.0,
+                                              color: Color(0xFF3b3b3b)),
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(
                                                   10.0) //                 <--- border radius here
@@ -80,35 +71,35 @@ class _HomePageState extends State<HomePage> {
                                                   ? (selectedClasses.length == 1
                                                       ? Text(
                                                           '${selectedClasses.length} DISCIPLINA CURSADA',
-                                                          style:
-                                                              const TextStyle(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  fontSize: 14,
-                                                                  letterSpacing:
-                                                                      1))
+                                                          style: const TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: 14,
+                                                              letterSpacing: 1,
+                                                              color: Color(
+                                                                  0xFF3b3b3b)))
                                                       : Text(
                                                           '${selectedClasses.length} DISCIPLINAS CURSADAS',
-                                                          style:
-                                                              const TextStyle(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  fontSize: 14,
-                                                                  letterSpacing:
-                                                                      1)))
+                                                          style: const TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: 14,
+                                                              letterSpacing: 1,
+                                                              color: Color(
+                                                                  0xFF3b3b3b))))
                                                   : Center(
                                                       child: Text(
                                                           'NENHUMA DISCIPLINA CURSADA',
-                                                          style:
-                                                              const TextStyle(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  fontSize: 14,
-                                                                  letterSpacing:
-                                                                      1)),
+                                                          style: const TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: 14,
+                                                              letterSpacing: 1,
+                                                              color: Color(
+                                                                  0xFF3b3b3b))),
                                                     ),
                                             ),
                                           ],
@@ -152,8 +143,6 @@ class _HomePageState extends State<HomePage> {
                                                 color: Colors.white),
                                           ),
                                           onPressed: () async {
-                                            //there is await inside, so add async tag
-
                                             var result = await Navigator.push(
                                                 context, MaterialPageRoute(
                                                     builder: (context) {
@@ -161,14 +150,10 @@ class _HomePageState extends State<HomePage> {
                                                 selectedClasses:
                                                     selectedClasses,
                                               );
-                                            })); //Navigate to another page
-                                            // this will return data which is assigned on Navigator.pop(context, returndata);
-
+                                            }));
                                             setState(() {
                                               print(result);
-                                              selectedClasses =
-                                                  result; //update the returndata with the return result,
-                                              //update UI with setState()
+                                              selectedClasses = result;
                                             });
                                           }),
                                     ),
@@ -188,7 +173,8 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                             padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                             decoration: BoxDecoration(
-                              border: Border.all(width: 1.0),
+                              border: Border.all(
+                                  width: 1.0, color: Color(0xFF3b3b3b)),
                               borderRadius: BorderRadius.all(Radius.circular(
                                       10.0) //                 <--- border radius here
                                   ),
@@ -203,7 +189,9 @@ class _HomePageState extends State<HomePage> {
                                         padding: const EdgeInsets.fromLTRB(
                                             0, 10, 0, 5),
                                         decoration: BoxDecoration(
-                                          border: Border.all(width: 1.0),
+                                          border: Border.all(
+                                              width: 1.0,
+                                              color: Color(0xFF3b3b3b)),
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(
                                                   10.0) //                 <--- border radius here
@@ -216,29 +204,25 @@ class _HomePageState extends State<HomePage> {
                                                 'QTDE. MÁXIMA DE DISCIPLINAS A SEREM RECOMENDADAS',
                                                 style: TextStyle(
                                                     fontWeight: FontWeight.bold,
-                                                    fontSize: 14),
+                                                    fontSize: 14,
+                                                    color: Color(0xFF3b3b3b),
+                                                    letterSpacing: 1),
                                                 textAlign: TextAlign.center,
                                               ),
                                             ),
                                             Center(
                                               child: DropdownButton(
-                                                // Initial Value
                                                 value: dropdownvalue,
-
-                                                // Down Arrow Icon
                                                 icon: const Icon(
                                                     Icons.keyboard_arrow_down),
-
                                                 elevation: 16,
                                                 style: const TextStyle(
                                                     fontSize: 16,
-                                                    color: Colors.black),
+                                                    color: Color(0xFF3b3b3b)),
                                                 underline: Container(
                                                   height: 2,
-                                                  color: Colors.black,
+                                                  color: Color(0xFF3b3b3b),
                                                 ),
-
-                                                // Array list of items
                                                 items:
                                                     items.map((String items) {
                                                   return DropdownMenuItem(
@@ -246,8 +230,6 @@ class _HomePageState extends State<HomePage> {
                                                     child: Text(items),
                                                   );
                                                 }).toList(),
-                                                // After selecting the desired option,it will
-                                                // change button value to selected value
                                                 onChanged: (String? newValue) {
                                                   setState(() {
                                                     dropdownvalue = newValue!;
