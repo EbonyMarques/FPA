@@ -73,7 +73,7 @@ class _SelectClassesPageState extends State<SelectClassesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Disciplinas cursadas'),
+          title: const Text('Selecionar disciplinas'),
           leading: BackButton(
             onPressed: () => Navigator.pop(context, widget.selectedClasses),
           ),
