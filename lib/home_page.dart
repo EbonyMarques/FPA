@@ -159,6 +159,118 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ],
                                 ),
+                                // SizedBox(
+                                //   height: 10,
+                                // ),
+                                // Row(
+                                //   children: [
+                                //     Expanded(
+                                //       child: Container(
+                                //         // margin: const EdgeInsets.all(15.0),
+                                //         padding: const EdgeInsets.fromLTRB(
+                                //             0, 10, 0, 5),
+                                //         decoration: BoxDecoration(
+                                //           border: Border.all(
+                                //               width: 1.0,
+                                //               color: Color(0xFF3b3b3b)),
+                                //           borderRadius: BorderRadius.all(
+                                //               Radius.circular(
+                                //                   10.0) //                 <--- border radius here
+                                //               ),
+                                //         ),
+                                //         child: Column(
+                                //           children: [
+                                //             Center(
+                                //               child: Text(
+                                //                 'QTDE. MÁXIMA DE DISCIPLINAS A SEREM RECOMENDADAS',
+                                //                 style: TextStyle(
+                                //                     fontWeight: FontWeight.bold,
+                                //                     fontSize: 14,
+                                //                     color: Color(0xFF3b3b3b),
+                                //                     letterSpacing: 1),
+                                //                 textAlign: TextAlign.center,
+                                //               ),
+                                //             ),
+                                //             Center(
+                                //               child: DropdownButton(
+                                //                 value: dropdownvalue,
+                                //                 icon: const Icon(
+                                //                     Icons.keyboard_arrow_down),
+                                //                 elevation: 16,
+                                //                 style: const TextStyle(
+                                //                     fontSize: 16,
+                                //                     color: Color(0xFF3b3b3b)),
+                                //                 underline: Container(
+                                //                   height: 2,
+                                //                   color: Color(0xFF3b3b3b),
+                                //                 ),
+                                //                 items:
+                                //                     items.map((String items) {
+                                //                   return DropdownMenuItem(
+                                //                     value: items,
+                                //                     child: Text(items),
+                                //                   );
+                                //                 }).toList(),
+                                //                 onChanged: (String? newValue) {
+                                //                   setState(() {
+                                //                     dropdownvalue = newValue!;
+                                //                   });
+                                //                 },
+                                //               ),
+                                //             ),
+                                //           ],
+                                //         ),
+                                //       ),
+                                //     )
+                                //   ],
+                                // ),
+                                // SizedBox(
+                                //   height: 10,
+                                // ),
+                                // Row(
+                                //   children: [
+                                //     Expanded(
+                                //       child: TextButton(
+                                //         style: ButtonStyle(
+                                //             padding: MaterialStateProperty.all(
+                                //                 EdgeInsets.fromLTRB(
+                                //                     0, 20, 0, 20)),
+                                //             backgroundColor:
+                                //                 MaterialStateProperty.all(
+                                //                     Colors.blue),
+                                //             shape: MaterialStateProperty.all<
+                                //                     RoundedRectangleBorder>(
+                                //                 RoundedRectangleBorder(
+                                //               borderRadius:
+                                //                   BorderRadius.circular(10),
+                                //             )),
+                                //             // padding: MaterialStateProperty.all(
+                                //             //     EdgeInsets.fromLTRB(20, 20, 20, 20)),
+                                //             overlayColor:
+                                //                 // 0xFF8adeaf
+                                //                 MaterialStateProperty.all(
+                                //                     Color.fromARGB(
+                                //                         255, 107, 185, 248))),
+                                //         child: const Text(
+                                //           'RECOMENDAR PRÓXIMAS DISCIPLINAS',
+                                //           style: TextStyle(
+                                //               letterSpacing: 1,
+                                //               color: Colors.white),
+                                //         ),
+                                //         onPressed: () {
+                                //           Navigator.push(
+                                //             context,
+                                //             MaterialPageRoute(
+                                //                 builder: (context) =>
+                                //                     RecommendedClassesPage(
+                                //                         selectedClasses:
+                                //                             selectedClasses)),
+                                //           );
+                                //         },
+                                //       ),
+                                //     )
+                                //   ],
+                                // ),
                               ],
                             )),
                       )
@@ -217,7 +329,7 @@ class _HomePageState extends State<HomePage> {
                                                     Icons.keyboard_arrow_down),
                                                 elevation: 16,
                                                 style: const TextStyle(
-                                                    fontSize: 16,
+                                                    fontSize: 15,
                                                     color: Color(0xFF3b3b3b)),
                                                 underline: Container(
                                                   height: 2,
@@ -271,7 +383,7 @@ class _HomePageState extends State<HomePage> {
                                                     Color.fromARGB(
                                                         255, 107, 185, 248))),
                                         child: const Text(
-                                          'RECOMENDAR DISCIPLINAS',
+                                          'BUSCAR DISCIPLINAS RECOMENDADAS',
                                           style: TextStyle(
                                               letterSpacing: 1,
                                               color: Colors.white),

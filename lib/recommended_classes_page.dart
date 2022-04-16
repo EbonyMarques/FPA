@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class RecommendedClassesPage extends StatefulWidget {
-  // const SelectClassesPage({Key? key}) : super(key: key);
   RecommendedClassesPage({Key? key, required this.selectedClasses})
       : super(key: key);
 
@@ -25,17 +24,12 @@ class _RecommendedClassesPageState extends State<RecommendedClassesPage> {
     super.initState();
     print(widget.selectedClasses);
   }
-  // at the beginning, all users are shown
-
-  // List<Map<String, dynamic>> selectedClasses = [];
-
-  // This function is called whenever the text field changes
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Recomendar disciplinas'),
+          title: const Text('Disciplinas recomendadas'),
           leading: BackButton(
             onPressed: () => Navigator.pop(context, widget.selectedClasses),
           ),
