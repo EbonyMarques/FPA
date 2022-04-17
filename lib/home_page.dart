@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                                             selectedClasses[index]['name']),
                                         // dense: true,
                                         contentPadding:
-                                            EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                            EdgeInsets.fromLTRB(10, 0, 0, 0),
                                         visualDensity:
                                             VisualDensity(vertical: -2.5),
                                       ))),
@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                             // : null
                             ),
                         SizedBox(
-                          height: 10,
+                          height: 13,
                         ),
                         Row(
                           children: [
@@ -152,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
                         Row(
                           children: [
