@@ -17,11 +17,42 @@ class _SelectClassesPageState extends State<SelectClassesPage> {
   // This holds a list of fiction users
   // You can use data fetched from a database or a server as well
   final List<Map<String, dynamic>> _allClasses = [
-    {"id": 1, "name": "Algoritmos e Estruturas de Dados", "isSelected": false},
-    {"id": 2, "name": "Banco de Dados", "isSelected": false},
-    {"id": 3, "name": "Projeto I", "isSelected": false},
-    {"id": 4, "name": "Projeto II", "isSelected": false},
-    {"id": 5, "name": "TCC", "isSelected": false},
+    {
+      "id": 1,
+      "name": "Algoritmos e Estruturas de Dados 1",
+      "isSelected": false
+    },
+    {"id": 2, "name": "Banco de Dados 1", "isSelected": false},
+    {"id": 3, "name": "Projeto I 1", "isSelected": false},
+    {"id": 4, "name": "Projeto II 1", "isSelected": false},
+    {"id": 5, "name": "TCC 1", "isSelected": false},
+    {
+      "id": 6,
+      "name": "Algoritmos e Estruturas de Dados 2",
+      "isSelected": false
+    },
+    {"id": 7, "name": "Banco de Dados 2", "isSelected": false},
+    {"id": 8, "name": "Projeto I 2", "isSelected": false},
+    {"id": 9, "name": "Projeto II 2", "isSelected": false},
+    {"id": 10, "name": "TCC 2", "isSelected": false},
+    {
+      "id": 11,
+      "name": "Algoritmos e Estruturas de Dados 3",
+      "isSelected": false
+    },
+    {"id": 12, "name": "Banco de Dados 3", "isSelected": false},
+    {"id": 13, "name": "Projeto I 3", "isSelected": false},
+    {"id": 14, "name": "Projeto II 3", "isSelected": false},
+    {"id": 15, "name": "TCC 3", "isSelected": false},
+    {
+      "id": 16,
+      "name": "Algoritmos e Estruturas de Dados 4",
+      "isSelected": false
+    },
+    {"id": 17, "name": "Banco de Dados 4", "isSelected": false},
+    {"id": 18, "name": "Projeto I 4", "isSelected": false},
+    {"id": 19, "name": "Projeto II 4", "isSelected": false},
+    {"id": 20, "name": "TCC 4", "isSelected": false},
   ];
 
   // This list holds the data for the list view
