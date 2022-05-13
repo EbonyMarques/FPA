@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:otimizador_academico/login_page.dart';
 import 'package:otimizador_academico/recommended_classes_page.dart';
 import 'package:otimizador_academico/select_classes_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'auth_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,13 +12,13 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class MyBehavior extends ScrollBehavior {
-  @override
-  Widget buildViewportChrome(
-      BuildContext context, Widget child, AxisDirection axisDirection) {
-    return child;
-  }
-}
+// class MyBehavior extends ScrollBehavior {
+//   @override
+//   Widget buildViewportChrome(
+//       BuildContext context, Widget child, AxisDirection axisDirection) {
+//     return child;
+//   }
+// }
 
 class _HomePageState extends State<HomePage> {
   List<Map<String, dynamic>> selectedClasses = [];
@@ -27,8 +30,16 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
+  // void logout() async {
+  //   await FirebaseAuth.instance.signOut();
+  //   Navigator.pushNamed(context, Welcome.id);
+  // }
+
   @override
   Widget build(BuildContext context) {
+    AuthService authService = AuthService();
+    // print('olha!');
+    // print(authService.getToken());
     return Scaffold(
       appBar: AppBar(
         title: const Text('Otimizador Acadêmico'),
@@ -95,6 +106,8 @@ class _HomePageState extends State<HomePage> {
                                   itemBuilder: (context, index) => ListTile(
                                         title: Text(
                                             selectedClasses[index]['name']),
+                                        subtitle: Text(
+                                            '${selectedClasses[index]['timeCourse']}'),
                                         // dense: true,
                                         contentPadding:
                                             EdgeInsets.fromLTRB(10, 0, 0, 0),
@@ -218,12 +231,13 @@ class _HomePageState extends State<HomePage> {
                                                 10.0) //                 <--- border radius here
                                             )),
                                     child: Center(
-                                      child: Text('NENHUMA DISCIPLINA CURSADA',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            letterSpacing: 1,
-                                            color: Color(0xFF3b3b3b),
-                                          )),
+                                      child:
+                                          Text('NENHUMA DISCIPLINA SELECIONADA',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                letterSpacing: 1,
+                                                color: Color(0xFF3b3b3b),
+                                              )),
                                     )))
                           ],
                         ),
@@ -271,7 +285,47 @@ class _HomePageState extends State<HomePage> {
                                   }),
                             ),
                           ],
-                        )
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: TextButton(
+                                  style: ButtonStyle(
+                                      padding: MaterialStateProperty.all(
+                                          EdgeInsets.fromLTRB(0, 20, 0, 20)),
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.blue),
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      )),
+                                      // padding: MaterialStateProperty.all(
+                                      //     EdgeInsets.fromLTRB(20, 20, 20, 20)),
+                                      overlayColor:
+                                          // 0xFF8adeaf
+                                          MaterialStateProperty.all(
+                                              Color.fromARGB(
+                                                  255, 107, 185, 248))),
+                                  child: const Text(
+                                    'SAIR',
+                                    style: TextStyle(
+                                        letterSpacing: 1, color: Colors.white),
+                                  ),
+                                  onPressed: () async {
+                                    authService.cleanToken();
+                                    Navigator.of(context).pushReplacement(
+                                        MaterialPageRoute(
+                                            builder: (context) => LoginPage()));
+                                    // setState(() {
+                                    //   print(result);
+                                    //   selectedClasses = result;
+                                    // });
+                                  }),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   )),

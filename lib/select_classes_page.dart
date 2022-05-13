@@ -19,40 +19,124 @@ class _SelectClassesPageState extends State<SelectClassesPage> {
   final List<Map<String, dynamic>> _allClasses = [
     {
       "id": 1,
-      "name": "Algoritmos e Estruturas de Dados 1",
+      "name": "Disciplina A",
+      "timeCourse": "1º período",
       "isSelected": false
     },
-    {"id": 2, "name": "Banco de Dados 1", "isSelected": false},
-    {"id": 3, "name": "Projeto I 1", "isSelected": false},
-    {"id": 4, "name": "Projeto II 1", "isSelected": false},
-    {"id": 5, "name": "TCC 1", "isSelected": false},
+    {
+      "id": 2,
+      "name": "Disciplina B",
+      "timeCourse": "1º período",
+      "isSelected": false
+    },
+    {
+      "id": 3,
+      "name": "Disciplina C",
+      "timeCourse": "1º período",
+      "isSelected": false
+    },
+    {
+      "id": 4,
+      "name": "Disciplina D",
+      "timeCourse": "1º período",
+      "isSelected": false
+    },
+    {
+      "id": 5,
+      "name": "Disciplina E",
+      "timeCourse": "1º período",
+      "isSelected": false
+    },
     {
       "id": 6,
-      "name": "Algoritmos e Estruturas de Dados 2",
+      "name": "Disciplina F",
+      "timeCourse": "2º período",
       "isSelected": false
     },
-    {"id": 7, "name": "Banco de Dados 2", "isSelected": false},
-    {"id": 8, "name": "Projeto I 2", "isSelected": false},
-    {"id": 9, "name": "Projeto II 2", "isSelected": false},
-    {"id": 10, "name": "TCC 2", "isSelected": false},
+    {
+      "id": 7,
+      "name": "Disciplina G",
+      "timeCourse": "2º período",
+      "isSelected": false
+    },
+    {
+      "id": 8,
+      "name": "Disciplina H",
+      "timeCourse": "2º período",
+      "isSelected": false
+    },
+    {
+      "id": 9,
+      "name": "Disciplina I",
+      "timeCourse": "2º período",
+      "isSelected": false
+    },
+    {
+      "id": 10,
+      "name": "Disciplina J",
+      "timeCourse": "2º período",
+      "isSelected": false
+    },
     {
       "id": 11,
-      "name": "Algoritmos e Estruturas de Dados 3",
+      "name": "Disciplina K",
+      "timeCourse": "3º período",
       "isSelected": false
     },
-    {"id": 12, "name": "Banco de Dados 3", "isSelected": false},
-    {"id": 13, "name": "Projeto I 3", "isSelected": false},
-    {"id": 14, "name": "Projeto II 3", "isSelected": false},
-    {"id": 15, "name": "TCC 3", "isSelected": false},
+    {
+      "id": 12,
+      "name": "Disciplina L",
+      "timeCourse": "3º período",
+      "isSelected": false
+    },
+    {
+      "id": 13,
+      "name": "Disciplina M",
+      "timeCourse": "3º período",
+      "isSelected": false
+    },
+    {
+      "id": 14,
+      "name": "Disciplina N",
+      "timeCourse": "3º período",
+      "isSelected": false
+    },
+    {
+      "id": 15,
+      "name": "Disciplina O",
+      "timeCourse": "3º período",
+      "isSelected": false
+    },
     {
       "id": 16,
-      "name": "Algoritmos e Estruturas de Dados 4",
+      "name": "Disciplina P",
+      "timeCourse": "4º período",
       "isSelected": false
     },
-    {"id": 17, "name": "Banco de Dados 4", "isSelected": false},
-    {"id": 18, "name": "Projeto I 4", "isSelected": false},
-    {"id": 19, "name": "Projeto II 4", "isSelected": false},
-    {"id": 20, "name": "TCC 4", "isSelected": false},
+    {
+      "id": 17,
+      "name": "Disciplina Q",
+      "timeCourse": "4º período",
+      "isSelected": false
+    },
+    {
+      "id": 18,
+      "name": "Disciplina R",
+      "timeCourse": "4º período",
+      "isSelected": false
+    },
+    {
+      "id": 19,
+      "name": "Disciplina S",
+      "timeCourse": "4º período",
+      "isSelected": false
+    },
+    {
+      "id": 20,
+      "name": "Disciplina T",
+      "timeCourse": "4º período",
+      "isSelected": false
+    },
   ];
 
   // This list holds the data for the list view
@@ -120,18 +204,22 @@ class _SelectClassesPageState extends State<SelectClassesPage> {
                 () => false); //onWillPop is Future<bool> so return false
           },
           child: Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
                 // const SizedBox(
                 //   height: 20,
                 // ),
-                TextField(
-                  onChanged: (value) => _runFilter(value),
-                  decoration: const InputDecoration(
-                      labelText: 'Buscar disciplina',
-                      suffixIcon: Icon(Icons.search)),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: TextField(
+                    onChanged: (value) => _runFilter(value),
+                    decoration: const InputDecoration(
+                        labelText: 'Buscar disciplina',
+                        suffixIcon: Icon(Icons.search)),
+                  ),
                 ),
+
                 const SizedBox(
                   height: 10,
                 ),
@@ -145,8 +233,10 @@ class _SelectClassesPageState extends State<SelectClassesPage> {
                             //   style: const TextStyle(fontSize: 24),
                             // ),
                             title: Text(_foundClasses[index]['name']),
-                            // subtitle: Text(
-                            //     '${_foundClasses[index]["age"].toString()} years old'),
+                            // ${selectedClasses.length}
+                            // subtitle: Text('${_foundClasses[index]["age"].toString()} years old'),
+                            subtitle:
+                                Text('${_foundClasses[index]['timeCourse']}'),
                             trailing: _foundClasses[index]['isSelected']
                                 ? Icon(
                                     Icons.check_circle,
@@ -174,6 +264,7 @@ class _SelectClassesPageState extends State<SelectClassesPage> {
                                 print(widget.selectedClasses);
                               });
                             },
+                            visualDensity: VisualDensity(vertical: -2.5),
                           ),
 
                           // itemBuilder: (context, index) => Card(
