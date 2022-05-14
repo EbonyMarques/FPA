@@ -6,7 +6,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'auth_service.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final void Function(bool) setDarkMode;
+  final bool darkMode;
+  const HomePage({Key? key, required this.setDarkMode, required this.darkMode})
+      : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -21,14 +24,30 @@ class HomePage extends StatefulWidget {
 // }
 
 class _HomePageState extends State<HomePage> {
+  AuthService authService = AuthService();
   List<Map<String, dynamic>> selectedClasses = [];
   String dropdownvalue = '5';
   var items = ['3', '4', '5'];
+  bool change = false;
+  late bool darkMode;
 
   @override
   initState() {
     super.initState();
+    darkMode = widget.darkMode;
   }
+
+  // void getTheme() async {
+  //   String? theme = await authService.getTheme();
+  //   if (theme == 'light') {
+  //     // authService.setThemeMode('light');
+  //     print('hhhhahahahhaha');
+  //     darkMode = false;
+  //   } else if (theme == 'dark') {
+  //     print('hhhheheheheheh');
+  //     darkMode = true;
+  //   }
+  // }
 
   // void logout() async {
   //   await FirebaseAuth.instance.signOut();
@@ -40,9 +59,63 @@ class _HomePageState extends State<HomePage> {
     AuthService authService = AuthService();
     // print('olha!');
     // print(authService.getToken());
+
+    print('verificando');
+    print(widget.darkMode);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Otimizador Acadêmico'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.logout,
+              color: Colors.white,
+            ),
+            onPressed: () async {
+              authService.cleanToken();
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => LoginPage(
+                      setDarkMode: widget.setDarkMode, darkMode: darkMode)));
+              // setState(() {
+              //   print(result);
+              //   selectedClasses = result;
+              // });
+            },
+          ),
+          IconButton(
+            icon: Icon(
+              Icons.light_mode,
+              color: Colors.white,
+            ),
+            onPressed: () async {
+              print('to aqui');
+              String? theme = await authService.getTheme();
+              print('vamos ver');
+              print(theme);
+              if (theme == 'light') {
+                print('troquei 1');
+                authService.setThemeMode('dark');
+                // Navigator.popAndPushNamed(context, '/HomePage');
+                widget.setDarkMode(true);
+                setState(() {
+                  darkMode = true;
+                });
+              } else if (theme == 'dark') {
+                print('troquei 2');
+                authService.setThemeMode('light');
+                widget.setDarkMode(false);
+                setState(() {
+                  darkMode = false;
+                });
+              }
+
+              setState(() {
+                change = true;
+              });
+            },
+          ),
+        ],
       ),
       body: SafeArea(
         child: Padding(
@@ -224,8 +297,12 @@ class _HomePageState extends State<HomePage> {
                                     padding: EdgeInsets.all(10),
                                     decoration: BoxDecoration(
                                         border: Border.all(
-                                            width: 1.0,
-                                            color: Color(0xFF3b3b3b)),
+                                          width: 1.0,
+                                          // color: Color(0xFF3b3b3b),
+                                          color: darkMode == true
+                                              ? Colors.grey
+                                              : Color(0xFF3b3b3b),
+                                        ),
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(
                                                 10.0) //                 <--- border radius here
@@ -236,7 +313,10 @@ class _HomePageState extends State<HomePage> {
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 letterSpacing: 1,
-                                                color: Color(0xFF3b3b3b),
+                                                // color: Color(0xFF3b3b3b),
+                                                color: darkMode == true
+                                                    ? Colors.white
+                                                    : Color(0xFF3b3b3b),
                                               )),
                                     )))
                           ],
@@ -286,46 +366,46 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: TextButton(
-                                  style: ButtonStyle(
-                                      padding: MaterialStateProperty.all(
-                                          EdgeInsets.fromLTRB(0, 20, 0, 20)),
-                                      backgroundColor:
-                                          MaterialStateProperty.all(
-                                              Colors.blue),
-                                      shape: MaterialStateProperty.all<
-                                              RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      )),
-                                      // padding: MaterialStateProperty.all(
-                                      //     EdgeInsets.fromLTRB(20, 20, 20, 20)),
-                                      overlayColor:
-                                          // 0xFF8adeaf
-                                          MaterialStateProperty.all(
-                                              Color.fromARGB(
-                                                  255, 107, 185, 248))),
-                                  child: const Text(
-                                    'SAIR',
-                                    style: TextStyle(
-                                        letterSpacing: 1, color: Colors.white),
-                                  ),
-                                  onPressed: () async {
-                                    authService.cleanToken();
-                                    Navigator.of(context).pushReplacement(
-                                        MaterialPageRoute(
-                                            builder: (context) => LoginPage()));
-                                    // setState(() {
-                                    //   print(result);
-                                    //   selectedClasses = result;
-                                    // });
-                                  }),
-                            ),
-                          ],
-                        ),
+                        // Row(
+                        //   children: [
+                        //     Expanded(
+                        //       child: TextButton(
+                        //           style: ButtonStyle(
+                        //               padding: MaterialStateProperty.all(
+                        //                   EdgeInsets.fromLTRB(0, 20, 0, 20)),
+                        //               backgroundColor:
+                        //                   MaterialStateProperty.all(
+                        //                       Colors.blue),
+                        //               shape: MaterialStateProperty.all<
+                        //                       RoundedRectangleBorder>(
+                        //                   RoundedRectangleBorder(
+                        //                 borderRadius: BorderRadius.circular(10),
+                        //               )),
+                        //               // padding: MaterialStateProperty.all(
+                        //               //     EdgeInsets.fromLTRB(20, 20, 20, 20)),
+                        //               overlayColor:
+                        //                   // 0xFF8adeaf
+                        //                   MaterialStateProperty.all(
+                        //                       Color.fromARGB(
+                        //                           255, 107, 185, 248))),
+                        //           child: const Text(
+                        //             'SAIR',
+                        //             style: TextStyle(
+                        //                 letterSpacing: 1, color: Colors.white),
+                        //           ),
+                        //           onPressed: () async {
+                        //             authService.cleanToken();
+                        //             Navigator.of(context).pushReplacement(
+                        //                 MaterialPageRoute(
+                        //                     builder: (context) => LoginPage()));
+                        //             // setState(() {
+                        //             //   print(result);
+                        //             //   selectedClasses = result;
+                        //             // });
+                        //           }),
+                        //     ),
+                        //   ],
+                        // ),
                       ],
                     ),
                   )),

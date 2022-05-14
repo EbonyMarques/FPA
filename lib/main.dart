@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'home_page.dart';
@@ -6,6 +8,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'auth_service.dart';
 // import 'package:provider/provider.dart';
+
+StreamController<bool> isLightTheme = StreamController();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,13 +37,43 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Widget currentPage = LoginPage();
+  // Widget currentPage = LoginPage();
   AuthService authService = AuthService();
   bool isOpening = true;
+  bool isLoading = true;
+  bool themeIsLoaded = false;
+  bool value = false;
+  bool darkMode = false;
 
   @override
   void initState() {
     super.initState();
+  }
+
+  void setDarkMode(bool boolean) {
+    setState(() {
+      darkMode = boolean;
+    });
+  }
+
+  void getTheme() async {
+    String? theme = await authService.getTheme();
+    if (theme == null) {
+      authService.setThemeMode('light');
+      setState(() {
+        darkMode = false;
+      });
+    } else if (theme == 'dark') {
+      setState(() {
+        darkMode = true;
+      });
+    } else if (theme == 'light') {
+      setState(() {
+        darkMode = false;
+      });
+    }
+    print('tema');
+    print(theme);
   }
 
   void checkLogin() async {
@@ -48,20 +82,47 @@ class _MyAppState extends State<MyApp> {
     print(token);
     if (token != null) {
       setState(() {
-        currentPage = HomePage();
+        // currentPage = HomePage();
+        isLoading = false;
+        value = true;
+      });
+    } else {
+      setState(() {
+        // currentPage = HomePage();
+        isLoading = false;
+        value = false;
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    String? token;
     if (isOpening) {
       checkLogin();
       isOpening = false;
     }
 
+    if (!themeIsLoaded) {
+      getTheme();
+      themeIsLoaded = true;
+    }
+
     return MaterialApp(
-      home: currentPage,
-    );
+        // home: currentPage,
+        darkTheme: darkMode == true ? ThemeData.dark() : null,
+        home: isLoading
+            ? Scaffold(
+                body: Center(child: Text('Carregando...')),
+              )
+            : value == true
+                ? HomePage(
+                    setDarkMode: setDarkMode,
+                    darkMode: darkMode,
+                  )
+                : LoginPage(
+                    setDarkMode: setDarkMode,
+                    darkMode: darkMode,
+                  ));
   }
 }

@@ -45,4 +45,16 @@ class AuthService extends ChangeNotifier {
   Future<void> cleanToken() async {
     await storage.delete(key: 'token');
   }
+
+  Future<void> setThemeMode(String theme) async {
+    await storage.delete(key: 'theme');
+    await storage.write(
+        // key: 'token', value: userCredential.credential?.token.toString());
+        key: 'theme',
+        value: theme);
+  }
+
+  Future<String?> getTheme() async {
+    return await storage.read(key: 'theme');
+  }
 }

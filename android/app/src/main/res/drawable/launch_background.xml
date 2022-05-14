@@ -7,6 +7,11 @@
     <!-- <item>
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/launch_image" />
+            android:src="@mipmap-hdpi/launch_image" />
+    </item> -->
+    <!-- <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@logo3" />
     </item> -->
 </layer-list>
