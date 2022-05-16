@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:otimizador_academico/create_account.dart';
 import 'package:otimizador_academico/home_page.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'auth_service.dart';
@@ -81,35 +83,6 @@ class _LoginScreenState extends State<LoginScreen> {
     darkMode = widget.darkMode;
   }
 
-  // void getTheme() async {
-  //   String? theme = await authService.getTheme();
-  //   if (theme == null) {
-  //     authService.setThemeMode('light');
-  //     setState(() {
-  //       darkMode = false;
-  //     });
-  //   } else if (theme == 'dark') {
-  //     setState(() {
-  //       darkMode = true;
-  //     });
-  //   } else if (theme == 'light') {
-  //     setState(() {
-  //       darkMode = false;
-  //     });
-  //   }
-  //   print('tema');
-  //   print(theme);
-  // }
-
-  // void signUp(String email, String password) async {
-  //   try {
-  //     await auth.createUserWithEmailAndPassword(email: email, password: password)
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  // }
-
-// static
   Future<User?> loginUsingEmailPassword(
       {required String email,
       required String password,
@@ -129,20 +102,10 @@ class _LoginScreenState extends State<LoginScreen> {
     return user;
   }
 
-  // Future<void> storeTokenAndData(UserCredential userCredential) async {
-  //   await storage.write(
-  //       key: 'token', value: userCredential.credential?.token.toString());
-  //   await storage.write(
-  //       key: 'userCredential', value: userCredential.toString());
-  // }
-
   @override
   Widget build(BuildContext context) {
     TextEditingController _emailController = TextEditingController();
     TextEditingController _passwordController = TextEditingController();
-
-    print('verificando');
-    print(Theme.of(context).colorScheme.onPrimary);
 
     return SafeArea(
         child: SingleChildScrollView(
@@ -157,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       // crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         widget.darkMode == false
-                            ? new Image.asset('assets/images/logo3.png',
+                            ? new Image.asset('assets/images/logo.png',
                                 width: 150.0, height: 150.0)
                             : new Image.asset('assets/images/logo3-invert.png',
                                 width: 150.0, height: 150.0),
@@ -171,7 +134,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               letterSpacing: 1,
                               color: darkMode == true
                                   ? Colors.white
-                                  : Color(0xFF3b3b3b),
+                                  // : Color(0xFF3b3b3b)
+                                  : Color(0xFF2196F3),
                               fontSize: 20,
                               fontWeight: FontWeight.bold),
                         ),
@@ -337,13 +301,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                           });
                                           if (_formKey.currentState!
                                               .validate()) {
-                                            // If the form is valid, display a snackbar. In the real world,
-                                            // you'd often call a server or save the information in a database.
-                                            // ScaffoldMessenger.of(context).showSnackBar(
-                                            //   const SnackBar(
-                                            //       content: Text('Processing Data')),
-                                            // );
-
                                             User? user =
                                                 await loginUsingEmailPassword(
                                                     email:
@@ -383,15 +340,71 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ],
                         ),
-                        // Text(
-                        //   (a == 'não existe' ? 'Dados incorretos!' : ''),
-                        //   style: TextStyle(
-                        //     color: Colors.red,
-                        //     fontWeight: FontWeight.bold,
-                        //     fontSize: 14,
-                        //     // letterSpacing: 1
-                        //   ),
-                        // ),
+
+                        SizedBox(
+                          height: 10,
+                        ),
+
+                        Row(
+                          children: [
+                            Expanded(
+                              child: OutlinedButton(
+                                  style: ButtonStyle(
+                                      padding: MaterialStateProperty.all(
+                                          const EdgeInsets.fromLTRB(
+                                              0, 20, 0, 20)),
+                                      // backgroundColor:
+                                      //     MaterialStateProperty.all(
+                                      //         Colors.blue),
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      )),
+                                      // overlayColor: MaterialStateProperty.all(
+                                      //     const Color.fromARGB(
+                                      //         255, 107, 185, 248))
+                                      side: MaterialStateProperty.all(
+                                          BorderSide(
+                                              color: Colors.blue,
+                                              width: 1.0,
+                                              style: BorderStyle.solid))),
+                                  child: Text(
+                                    'CRIAR CONTA',
+                                    style: TextStyle(
+                                        letterSpacing: 1,
+                                        color: darkMode == true
+                                            ? Colors.white
+                                            : Colors.blue),
+                                  ),
+                                  onPressed: tryingLogin == true
+                                      ? null
+                                      : () {
+                                          print('to aqui hein');
+                                          // Navigator.push(
+                                          //   context,
+                                          //   MaterialPageRoute(
+                                          //       builder: (context) =>
+                                          //           CreateAccount(
+                                          //             setDarkMode:
+                                          //                 widget.setDarkMode,
+                                          //             darkMode: darkMode,
+                                          //           )),
+                                          // );
+
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      CreateAccount(
+                                                        setDarkMode:
+                                                            widget.setDarkMode,
+                                                        darkMode:
+                                                            widget.darkMode,
+                                                      )));
+                                        }),
+                            ),
+                          ],
+                        ),
                       ]),
                 ))));
   }
