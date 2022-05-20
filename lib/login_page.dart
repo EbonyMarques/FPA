@@ -313,16 +313,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                             print(user);
 
                                             if (user != null) {
-                                              Navigator.of(context)
-                                                  .pushReplacement(
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              HomePage(
-                                                                setDarkMode: widget
-                                                                    .setDarkMode,
-                                                                darkMode: widget
-                                                                    .darkMode,
-                                                              )));
+                                              Navigator.of(context).pushReplacement(
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          HomePage(
+                                                              setDarkMode:
+                                                                  widget
+                                                                      .setDarkMode,
+                                                              darkMode: widget
+                                                                  .darkMode,
+                                                              uid: user.uid)));
                                             } else {
                                               setState(() {
                                                 a = 'não existe';

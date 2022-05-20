@@ -299,11 +299,13 @@ class _CreateAccountState extends State<CreateAccount> {
                                                       MaterialPageRoute(
                                                           builder: (context) =>
                                                               HomePage(
-                                                                setDarkMode: widget
-                                                                    .setDarkMode,
-                                                                darkMode: widget
-                                                                    .darkMode,
-                                                              )),
+                                                                  setDarkMode:
+                                                                      widget
+                                                                          .setDarkMode,
+                                                                  darkMode: widget
+                                                                      .darkMode,
+                                                                  uid: result1
+                                                                      .uid)),
                                                       (route) => false);
 
                                                   // Navigator.of(context)

@@ -5,7 +5,8 @@ class SelectClassesPage extends StatefulWidget {
   SelectClassesPage({Key? key, required this.selectedClasses})
       : super(key: key);
 
-  List<Map<String, dynamic>> selectedClasses;
+  // List<Map<String, dynamic>> selectedClasses;
+  List<dynamic> selectedClasses;
 
   @override
   _SelectClassesPageState createState() => _SelectClassesPageState();
@@ -147,10 +148,17 @@ class _SelectClassesPageState extends State<SelectClassesPage> {
     if (!widget.selectedClasses.isEmpty) {
       for (var i = 0; i < widget.selectedClasses.length; i++) {
         var currentElement = widget.selectedClasses[i]['id'];
+        // try {
+        //   currentElement = widget.selectedClasses[i]['id'];
+        // } catch (e) {
+        //   currentElement = int.parse(widget.selectedClasses[i]['id']);
+        // }
 
         print(widget.selectedClasses[i]);
 
-        _allClasses[currentElement - 1]['isSelected'] = true;
+        if (widget.selectedClasses[i]['isSelected'] == true) {
+          _allClasses[currentElement - 1]['isSelected'] = true;
+        }
 
         print(_allClasses[currentElement - 1]);
       }
@@ -186,6 +194,9 @@ class _SelectClassesPageState extends State<SelectClassesPage> {
 
   @override
   Widget build(BuildContext context) {
+    print('olha');
+    print(_foundClasses);
+    print(widget.selectedClasses);
     return Scaffold(
         appBar: AppBar(
           title: const Text('Selecionar disciplinas'),
@@ -237,7 +248,7 @@ class _SelectClassesPageState extends State<SelectClassesPage> {
                             // subtitle: Text('${_foundClasses[index]["age"].toString()} years old'),
                             subtitle:
                                 Text('${_foundClasses[index]['timeCourse']}'),
-                            trailing: _foundClasses[index]['isSelected']
+                            trailing: _foundClasses[index]['isSelected'] == true
                                 ? Icon(
                                     Icons.check_circle,
                                     color: Colors.green[700],

@@ -44,6 +44,7 @@ class _MyAppState extends State<MyApp> {
   bool themeIsLoaded = false;
   bool value = false;
   bool darkMode = false;
+  dynamic token_final;
 
   @override
   void initState() {
@@ -80,6 +81,7 @@ class _MyAppState extends State<MyApp> {
     String? token = await authService.getToken();
     print('é agora!');
     print(token);
+    token_final = token;
     if (token != null) {
       setState(() {
         // currentPage = HomePage();
@@ -97,7 +99,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    String? token;
+    // String? token;
     if (isOpening) {
       checkLogin();
       isOpening = false;
@@ -119,7 +121,7 @@ class _MyAppState extends State<MyApp> {
                 ? HomePage(
                     setDarkMode: setDarkMode,
                     darkMode: darkMode,
-                  )
+                    uid: token_final)
                 : LoginPage(
                     setDarkMode: setDarkMode,
                     darkMode: darkMode,
