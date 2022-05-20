@@ -4,7 +4,7 @@ class RecommendedClassesPage extends StatefulWidget {
   RecommendedClassesPage({Key? key, required this.selectedClasses})
       : super(key: key);
 
-  List<Map<String, dynamic>> selectedClasses;
+  List<dynamic> selectedClasses;
 
   @override
   _RecommendedClassesPageState createState() => _RecommendedClassesPageState();

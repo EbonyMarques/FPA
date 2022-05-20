@@ -35,26 +35,73 @@ class _HomePageState extends State<HomePage> {
   initState() {
     super.initState();
     darkMode = widget.darkMode;
-    setData(widget.uid);
+    // if ( == {}) {
+    //   setData(widget.uid);
+    // }
+    // verify().then((value) => getDataLocal());
     getDataLocal();
   }
 
+  // Future<void> verify() async {
+  //   Map<String, dynamic> data1 = await getData(widget.uid);
+  //   print('verify');
+  //   print(data1);
+  //   if (data1.length == 0) {
+  //     print('feito!');
+  //     setData(widget.uid);
+  //   }
+  // }
+
   void getDataLocal() async {
     Map<String, dynamic> data1 = await getData(widget.uid);
-    // print('opaaa');
-    // print(data1);
-    // print(data1.runtimeType);
+    print('opaaa');
+    print(data1);
+
+    // if (data1.length == 0) {
+    //   print('feito!');
+    //   setData(widget.uid);
+    //   data1 = {
+    //     'Disciplina A': {
+    //       'id': 1,
+    //       'name': 'Disciplina A',
+    //       'timeCourse': '1º período',
+    //       'isSelected': true
+    //     },
+    //     'Disciplina B': {
+    //       'id': 2,
+    //       'name': 'Disciplina B',
+    //       'timeCourse': '1º período',
+    //       'isSelected': true
+    //     },
+    //     'Disciplina C': {
+    //       'id': 3,
+    //       'name': 'Disciplina C',
+    //       'timeCourse': '1º período',
+    //       'isSelected': false
+    //     },
+    //     'Disciplina D': {
+    //       'id': 4,
+    //       'name': 'Disciplina D',
+    //       'timeCourse': '1º período',
+    //       'isSelected': false
+    //     },
+    //     'Disciplina E': {
+    //       'id': 5,
+    //       'name': 'Disciplina E',
+    //       'timeCourse': '1º período',
+    //       'isSelected': false
+    //     }
+    //   };
+    // }
+
     dynamic data2 = [];
     dynamic data3 = [];
     setState(() {
-      // print('tentando');
-      // data = data1;
       data1.forEach((k, v) => data2.add(v));
       data = data2;
       data2.forEach((d) => {
             if (d['isSelected']) {data3.add(d)}
           });
-      // selectedClasses = data2;
       selectedClasses = data3;
     });
   }
@@ -236,7 +283,12 @@ class _HomePageState extends State<HomePage> {
                                   }));
                                   setState(() {
                                     print(result);
-                                    selectedClasses = result;
+                                    data = result;
+                                    dynamic data100 = [];
+                                    result.forEach((d) => {
+                                          if (d['isSelected']) {data100.add(d)}
+                                        });
+                                    selectedClasses = data100;
                                     updateData(widget.uid, result);
                                   });
                                 }),
@@ -280,7 +332,7 @@ class _HomePageState extends State<HomePage> {
                                 MaterialPageRoute(
                                     builder: (context) =>
                                         RecommendedClassesPage(
-                                            selectedClasses: selectedClasses)),
+                                            selectedClasses: data)),
                               );
                             },
                           )
@@ -365,7 +417,14 @@ class _HomePageState extends State<HomePage> {
                                     }));
                                     setState(() {
                                       print(result);
-                                      selectedClasses = result;
+                                      data = result;
+                                      dynamic data100 = [];
+                                      result.forEach((d) => {
+                                            if (d['isSelected'])
+                                              {data100.add(d)}
+                                          });
+                                      selectedClasses = data100;
+                                      updateData(widget.uid, result);
                                     });
                                   }),
                             ),
