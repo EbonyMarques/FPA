@@ -118,6 +118,10 @@ class _HomePageState extends State<HomePage> {
 
     print(selectedClasses);
 
+    // selectedClasses.sort((a, b) => (b['name']).compareTo(a['name']));
+
+    /// sort List<Map<String,dynamic>>
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Otimizador Acadêmico'),
@@ -232,7 +236,7 @@ class _HomePageState extends State<HomePage> {
                                       title:
                                           Text(selectedClasses[index]['name']),
                                       subtitle: Text(
-                                          '${selectedClasses[index]['timeCourse']}'),
+                                          '${selectedClasses[index]['timeCourse']}º período'),
                                       // dense: true,
                                       contentPadding:
                                           EdgeInsets.fromLTRB(10, 0, 0, 0),

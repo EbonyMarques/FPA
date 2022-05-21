@@ -18,126 +18,26 @@ class _SelectClassesPageState extends State<SelectClassesPage> {
   // This holds a list of fiction users
   // You can use data fetched from a database or a server as well
   final List<Map<String, dynamic>> _allClasses = [
-    {
-      "id": 1,
-      "name": "Disciplina A",
-      "timeCourse": "1º período",
-      "isSelected": false
-    },
-    {
-      "id": 2,
-      "name": "Disciplina B",
-      "timeCourse": "1º período",
-      "isSelected": false
-    },
-    {
-      "id": 3,
-      "name": "Disciplina C",
-      "timeCourse": "1º período",
-      "isSelected": false
-    },
-    {
-      "id": 4,
-      "name": "Disciplina D",
-      "timeCourse": "1º período",
-      "isSelected": false
-    },
-    {
-      "id": 5,
-      "name": "Disciplina E",
-      "timeCourse": "1º período",
-      "isSelected": false
-    },
-    {
-      "id": 6,
-      "name": "Disciplina F",
-      "timeCourse": "2º período",
-      "isSelected": false
-    },
-    {
-      "id": 7,
-      "name": "Disciplina G",
-      "timeCourse": "2º período",
-      "isSelected": false
-    },
-    {
-      "id": 8,
-      "name": "Disciplina H",
-      "timeCourse": "2º período",
-      "isSelected": false
-    },
-    {
-      "id": 9,
-      "name": "Disciplina I",
-      "timeCourse": "2º período",
-      "isSelected": false
-    },
-    {
-      "id": 10,
-      "name": "Disciplina J",
-      "timeCourse": "2º período",
-      "isSelected": false
-    },
-    {
-      "id": 11,
-      "name": "Disciplina K",
-      "timeCourse": "3º período",
-      "isSelected": false
-    },
-    {
-      "id": 12,
-      "name": "Disciplina L",
-      "timeCourse": "3º período",
-      "isSelected": false
-    },
-    {
-      "id": 13,
-      "name": "Disciplina M",
-      "timeCourse": "3º período",
-      "isSelected": false
-    },
-    {
-      "id": 14,
-      "name": "Disciplina N",
-      "timeCourse": "3º período",
-      "isSelected": false
-    },
-    {
-      "id": 15,
-      "name": "Disciplina O",
-      "timeCourse": "3º período",
-      "isSelected": false
-    },
-    {
-      "id": 16,
-      "name": "Disciplina P",
-      "timeCourse": "4º período",
-      "isSelected": false
-    },
-    {
-      "id": 17,
-      "name": "Disciplina Q",
-      "timeCourse": "4º período",
-      "isSelected": false
-    },
-    {
-      "id": 18,
-      "name": "Disciplina R",
-      "timeCourse": "4º período",
-      "isSelected": false
-    },
-    {
-      "id": 19,
-      "name": "Disciplina S",
-      "timeCourse": "4º período",
-      "isSelected": false
-    },
-    {
-      "id": 20,
-      "name": "Disciplina T",
-      "timeCourse": "4º período",
-      "isSelected": false
-    },
+    {"id": 1, "name": "Disciplina A", "timeCourse": 1, "isSelected": false},
+    {"id": 2, "name": "Disciplina B", "timeCourse": 1, "isSelected": false},
+    {"id": 3, "name": "Disciplina C", "timeCourse": 1, "isSelected": false},
+    {"id": 4, "name": "Disciplina D", "timeCourse": 1, "isSelected": false},
+    {"id": 5, "name": "Disciplina E", "timeCourse": 1, "isSelected": false},
+    {"id": 6, "name": "Disciplina F", "timeCourse": 2, "isSelected": false},
+    {"id": 7, "name": "Disciplina G", "timeCourse": 2, "isSelected": false},
+    {"id": 8, "name": "Disciplina H", "timeCourse": 2, "isSelected": false},
+    {"id": 9, "name": "Disciplina I", "timeCourse": 2, "isSelected": false},
+    {"id": 10, "name": "Disciplina J", "timeCourse": 2, "isSelected": false},
+    {"id": 11, "name": "Disciplina K", "timeCourse": 3, "isSelected": false},
+    {"id": 12, "name": "Disciplina L", "timeCourse": 3, "isSelected": false},
+    {"id": 13, "name": "Disciplina M", "timeCourse": 3, "isSelected": false},
+    {"id": 14, "name": "Disciplina N", "timeCourse": 3, "isSelected": false},
+    {"id": 15, "name": "Disciplina O", "timeCourse": 3, "isSelected": false},
+    {"id": 16, "name": "Disciplina P", "timeCourse": 4, "isSelected": false},
+    {"id": 17, "name": "Disciplina Q", "timeCourse": 4, "isSelected": false},
+    {"id": 18, "name": "Disciplina R", "timeCourse": 4, "isSelected": false},
+    {"id": 19, "name": "Disciplina S", "timeCourse": 4, "isSelected": false},
+    {"id": 20, "name": "Disciplina T", "timeCourse": 4, "isSelected": false},
   ];
 
   // This list holds the data for the list view
@@ -246,8 +146,8 @@ class _SelectClassesPageState extends State<SelectClassesPage> {
                             title: Text(_foundClasses[index]['name']),
                             // ${selectedClasses.length}
                             // subtitle: Text('${_foundClasses[index]["age"].toString()} years old'),
-                            subtitle:
-                                Text('${_foundClasses[index]['timeCourse']}'),
+                            subtitle: Text(
+                                '${_foundClasses[index]['timeCourse']}º período'),
                             trailing: _foundClasses[index]['isSelected'] == true
                                 ? Icon(
                                     Icons.check_circle,
