@@ -41,6 +41,7 @@ class _CreateAccountState extends State<CreateAccount> {
   Future<dynamic> createAccount(
       {required String email,
       required String password,
+      required String name,
       required BuildContext context}) async {
     dynamic result;
     try {
@@ -49,6 +50,12 @@ class _CreateAccountState extends State<CreateAccount> {
         email: email,
         password: password,
       );
+      print('Testando...1');
+      print(FirebaseAuth.instance.currentUser?.displayName);
+      FirebaseAuth.instance.currentUser?.updateDisplayName('Teste');
+      print('Testando...2');
+      print(FirebaseAuth.instance.currentUser?.displayName);
+
       result = credential.user;
       authService.storeTokenAndData(credential);
     } on FirebaseAuthException catch (e) {
@@ -270,6 +277,7 @@ class _CreateAccountState extends State<CreateAccount> {
                                                         password:
                                                             _passwordController
                                                                 .text,
+                                                        name: 'Teste',
                                                         context: context);
 
                                                 print(result1);

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'home_page.dart';
@@ -7,7 +6,6 @@ import 'login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'auth_service.dart';
-// import 'package:provider/provider.dart';
 
 StreamController<bool> isLightTheme = StreamController();
 
@@ -18,17 +16,6 @@ void main() async {
   runApp(MyApp());
 }
 
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       // home: HomePage(),
-//       home: LoginPage(),
-//     );
-//   }
-// }
-
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -37,7 +24,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // Widget currentPage = LoginPage();
   AuthService authService = AuthService();
   bool isOpening = true;
   bool isLoading = true;
@@ -84,13 +70,11 @@ class _MyAppState extends State<MyApp> {
     token_final = token;
     if (token != null) {
       setState(() {
-        // currentPage = HomePage();
         isLoading = false;
         value = true;
       });
     } else {
       setState(() {
-        // currentPage = HomePage();
         isLoading = false;
         value = false;
       });
@@ -99,7 +83,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    // String? token;
     if (isOpening) {
       checkLogin();
       isOpening = false;
@@ -111,7 +94,7 @@ class _MyAppState extends State<MyApp> {
     }
 
     return MaterialApp(
-        // home: currentPage,
+
         darkTheme: darkMode == true ? ThemeData.dark() : null,
         home: isLoading
             ? Scaffold(

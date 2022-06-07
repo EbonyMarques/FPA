@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class RecommendedClassesPage extends StatefulWidget {
-  RecommendedClassesPage({Key? key, required this.selectedClasses})
+  RecommendedClassesPage(
+      {Key? key, required this.selectedClasses, required this.darkMode})
       : super(key: key);
 
   List<dynamic> selectedClasses;
+  final bool darkMode;
 
   @override
   _RecommendedClassesPageState createState() => _RecommendedClassesPageState();
@@ -33,6 +35,7 @@ class _RecommendedClassesPageState extends State<RecommendedClassesPage> {
     {"id": 19, "name": "Disciplina S", "timeCourse": 4, "isSelected": false},
     {"id": 20, "name": "Disciplina T", "timeCourse": 4, "isSelected": false},
   ];
+  dynamic dropdownValue = '3';
 
   @override
   initState() {
@@ -81,6 +84,73 @@ class _RecommendedClassesPageState extends State<RecommendedClassesPage> {
             padding: const EdgeInsets.all(10),
             child: Column(
               children: [
+                _allClasses.length > 2
+                    ? DropdownButton<String>(
+                        value: dropdownValue,
+                        icon: const Icon(Icons.arrow_downward),
+                        elevation: 16,
+                        style: widget.darkMode
+                            ? const TextStyle(color: Colors.white)
+                            : const TextStyle(color: Colors.black),
+                        underline: widget.darkMode
+                            ? Container(
+                                height: 2,
+                                color: Colors.white,
+                              )
+                            : Container(
+                                height: 2,
+                                color: Colors.black,
+                              ),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            dropdownValue = newValue!;
+                          });
+                        },
+                        items: _allClasses.length == 5
+                            ? <String>['3', '4', '5']
+                                .map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList()
+                            : _allClasses.length == 4
+                                ? <String>['3', '4']
+                                    .map<DropdownMenuItem<String>>(
+                                        (String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList()
+                                : _allClasses.length == 3
+                                    ? <String>['3']
+                                        .map<DropdownMenuItem<String>>(
+                                            (String value) {
+                                        return DropdownMenuItem<String>(
+                                          value: value,
+                                          child: Text(value),
+                                        );
+                                      }).toList()
+                                    : _allClasses.length == 2
+                                        ? <String>['2']
+                                            .map<DropdownMenuItem<String>>(
+                                                (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList()
+                                        : <String>['1']
+                                            .map<DropdownMenuItem<String>>(
+                                                (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                      )
+                    : SizedBox(),
                 Expanded(
                   child: widget.selectedClasses.isNotEmpty
                       ?
@@ -108,7 +178,10 @@ class _RecommendedClassesPageState extends State<RecommendedClassesPage> {
                       //         ))
 
                       ListView.builder(
-                          itemCount: _allClasses.length,
+                          // itemCount: _allClasses.length,
+                          itemCount: _allClasses.length > 3
+                              ? int.parse(dropdownValue)
+                              : _allClasses.length,
                           shrinkWrap: true,
                           itemBuilder: (context, index) => ListTile(
                                 title: Text(_allClasses[index]['name']),

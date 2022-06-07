@@ -21,6 +21,14 @@ class AuthService extends ChangeNotifier {
     });
   }
 
+  Future<String?> getDisplayName() async {
+    return _auth.currentUser?.displayName;
+  }
+
+  Future<String?> getEmail() async {
+    return _auth.currentUser?.email;
+  }
+
   Future<void> storeTokenAndData(UserCredential userCredential) async {
     await storage.write(
         // key: 'token', value: userCredential.credential?.token.toString());
