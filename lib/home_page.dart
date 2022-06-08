@@ -100,18 +100,25 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Text(
-                'Bem-vindo(a), ' + email + '!',
-                style: TextStyle(color: Colors.white, fontSize: 20),
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'Bem-vindo(a), ' + email + '!',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
               ),
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
             ),
             ListTile(
-              leading: Icon(
-                Icons.light_mode,
-              ),
+              leading: !darkMode
+                  ? Icon(
+                      Icons.dark_mode,
+                    )
+                  : Icon(
+                      Icons.light_mode,
+                    ),
               title: Text(darkMode ? 'Modo claro' : 'Modo escuro'),
               onTap: () async {
                 print('to aqui');

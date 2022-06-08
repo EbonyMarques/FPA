@@ -35,6 +35,7 @@ class _RecommendedClassesPageState extends State<RecommendedClassesPage> {
     {"id": 19, "name": "Disciplina S", "timeCourse": 4, "isSelected": false},
     {"id": 20, "name": "Disciplina T", "timeCourse": 4, "isSelected": false},
   ];
+
   dynamic dropdownValue = '3';
 
   @override
@@ -53,6 +54,19 @@ class _RecommendedClassesPageState extends State<RecommendedClassesPage> {
 
   @override
   Widget build(BuildContext context) {
+    // if (_allClasses.length >= 5) {
+    //   setState(() {
+    //     dropdownValue = '5';
+    //   });
+    // } else if (_allClasses.length == 4) {
+    //   setState(() {
+    //     dropdownValue = '4';
+    //   });
+    // } else if (_allClasses.length == 3) {
+    //   setState(() {
+    //     dropdownValue = '3';
+    //   });
+    // }
     for (var i = 0; i < widget.selectedClasses.length; i++) {
       Map currentElement = widget.selectedClasses[i];
       print(_allClasses);
@@ -84,38 +98,142 @@ class _RecommendedClassesPageState extends State<RecommendedClassesPage> {
             padding: const EdgeInsets.all(10),
             child: Column(
               children: [
-                _allClasses.length > 2
-                    ? DropdownButton<String>(
-                        value: dropdownValue,
-                        icon: const Icon(Icons.arrow_downward),
-                        elevation: 16,
-                        style: widget.darkMode
-                            ? const TextStyle(color: Colors.white)
-                            : const TextStyle(color: Colors.black),
-                        underline: widget.darkMode
-                            ? Container(
-                                height: 2,
-                                color: Colors.white,
-                              )
-                            : Container(
-                                height: 2,
-                                color: Colors.black,
-                              ),
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            dropdownValue = newValue!;
-                          });
-                        },
-                        items: _allClasses.length == 5
-                            ? <String>['3', '4', '5']
-                                .map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList()
-                            : _allClasses.length == 4
-                                ? <String>['3', '4']
+                // Container(
+                //   margin: const EdgeInsets.all(0.0),
+                //   padding: const EdgeInsets.all(10.0),
+                //   decoration: BoxDecoration(
+                //     border: Border.all(width: 1.0),
+                //     borderRadius: BorderRadius.all(Radius.circular(
+                //             5.0) //                 <--- border radius here
+                //         ),
+                //   ), //             <--- BoxDecoration here
+                //   child: Column(
+                //     children: [
+                //       Text(
+                //         'QTDE. DE DISCIPLINAS RECOMENDADAS',
+                //         textAlign: TextAlign.right,
+                //         style: TextStyle(
+                //             fontWeight: FontWeight.bold,
+                //             fontSize: 14,
+                //             letterSpacing: 1),
+                //       ),
+                //       _allClasses.length > 2
+                //           ? DropdownButton<String>(
+                //               value: dropdownValue,
+                //               icon: const Icon(Icons.arrow_downward),
+                //               elevation: 16,
+                //               style: widget.darkMode
+                //                   ? const TextStyle(color: Colors.white)
+                //                   : const TextStyle(color: Colors.black),
+                //               underline: widget.darkMode
+                //                   ? Container(
+                //                       height: 2,
+                //                       color: Colors.white,
+                //                     )
+                //                   : Container(
+                //                       height: 2,
+                //                       color: Colors.black,
+                //                     ),
+                //               onChanged: (String? newValue) {
+                //                 setState(() {
+                //                   dropdownValue = newValue!;
+                //                 });
+                //               },
+                //               items: _allClasses.length >= 5
+                //                   ? <String>['3', '4', '5']
+                //                       .map<DropdownMenuItem<String>>(
+                //                           (String value) {
+                //                       return DropdownMenuItem<String>(
+                //                         value: value,
+                //                         child: Text(value),
+                //                       );
+                //                     }).toList()
+                //                   : _allClasses.length == 4
+                //                       ? <String>['3', '4']
+                //                           .map<DropdownMenuItem<String>>(
+                //                               (String value) {
+                //                           return DropdownMenuItem<String>(
+                //                             value: value,
+                //                             child: Text(value),
+                //                           );
+                //                         }).toList()
+                //                       : _allClasses.length == 3
+                //                           ? <String>['3']
+                //                               .map<DropdownMenuItem<String>>(
+                //                                   (String value) {
+                //                               return DropdownMenuItem<String>(
+                //                                 value: value,
+                //                                 child: Text(value),
+                //                               );
+                //                             }).toList()
+                //                           : _allClasses.length == 2
+                //                               ? <String>[
+                //                                   '2'
+                //                                 ].map<DropdownMenuItem<String>>(
+                //                                   (String value) {
+                //                                   return DropdownMenuItem<
+                //                                       String>(
+                //                                     value: value,
+                //                                     child: Text(value),
+                //                                   );
+                //                                 }).toList()
+                //                               : <String>[
+                //                                   '1'
+                //                                 ].map<DropdownMenuItem<String>>(
+                //                                   (String value) {
+                //                                   return DropdownMenuItem<
+                //                                       String>(
+                //                                     value: value,
+                //                                     child: Text(value),
+                //                                   );
+                //                                 }).toList(),
+                //             )
+                //           : SizedBox(),
+                //     ],
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 10,
+                // ),
+                Row(
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'DISCIPLINAS A CURSAR NO SEMESTRE: ',
+                      textAlign: TextAlign.right,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          letterSpacing: 1),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    _allClasses.length > 2
+                        ? DropdownButton<String>(
+                            value: dropdownValue,
+                            icon: const Icon(Icons.arrow_downward),
+                            elevation: 16,
+                            style: widget.darkMode
+                                ? const TextStyle(color: Colors.white)
+                                : const TextStyle(color: Colors.black),
+                            underline: widget.darkMode
+                                ? Container(
+                                    height: 2,
+                                    color: Colors.white,
+                                  )
+                                : Container(
+                                    height: 2,
+                                    color: Colors.black,
+                                  ),
+                            onChanged: (String? newValue) {
+                              print('oxe?');
+                              setState(() {
+                                dropdownValue = newValue!;
+                              });
+                            },
+                            items: _allClasses.length >= 5
+                                ? <String>['3', '4', '5']
                                     .map<DropdownMenuItem<String>>(
                                         (String value) {
                                     return DropdownMenuItem<String>(
@@ -123,8 +241,8 @@ class _RecommendedClassesPageState extends State<RecommendedClassesPage> {
                                       child: Text(value),
                                     );
                                   }).toList()
-                                : _allClasses.length == 3
-                                    ? <String>['3']
+                                : _allClasses.length == 4
+                                    ? <String>['3', '4']
                                         .map<DropdownMenuItem<String>>(
                                             (String value) {
                                         return DropdownMenuItem<String>(
@@ -132,8 +250,8 @@ class _RecommendedClassesPageState extends State<RecommendedClassesPage> {
                                           child: Text(value),
                                         );
                                       }).toList()
-                                    : _allClasses.length == 2
-                                        ? <String>['2']
+                                    : _allClasses.length == 3
+                                        ? <String>['3']
                                             .map<DropdownMenuItem<String>>(
                                                 (String value) {
                                             return DropdownMenuItem<String>(
@@ -141,16 +259,27 @@ class _RecommendedClassesPageState extends State<RecommendedClassesPage> {
                                               child: Text(value),
                                             );
                                           }).toList()
-                                        : <String>['1']
-                                            .map<DropdownMenuItem<String>>(
-                                                (String value) {
-                                            return DropdownMenuItem<String>(
-                                              value: value,
-                                              child: Text(value),
-                                            );
-                                          }).toList(),
-                      )
-                    : SizedBox(),
+                                        : _allClasses.length == 2
+                                            ? <String>['2']
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                return DropdownMenuItem<String>(
+                                                  value: value,
+                                                  child: Text(value),
+                                                );
+                                              }).toList()
+                                            : <String>['1']
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                return DropdownMenuItem<String>(
+                                                  value: value,
+                                                  child: Text(value),
+                                                );
+                                              }).toList(),
+                          )
+                        : SizedBox(),
+                  ],
+                ),
                 Expanded(
                   child: widget.selectedClasses.isNotEmpty
                       ?
