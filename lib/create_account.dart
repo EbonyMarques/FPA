@@ -41,7 +41,6 @@ class _CreateAccountState extends State<CreateAccount> {
   Future<dynamic> createAccount(
       {required String email,
       required String password,
-      required String name,
       required BuildContext context}) async {
     dynamic result;
     try {
@@ -50,25 +49,15 @@ class _CreateAccountState extends State<CreateAccount> {
         email: email,
         password: password,
       );
-      print('Testando...1');
-      print(FirebaseAuth.instance.currentUser?.displayName);
-      FirebaseAuth.instance.currentUser?.updateDisplayName('Teste');
-      print('Testando...2');
-      print(FirebaseAuth.instance.currentUser?.displayName);
 
       result = credential.user;
       authService.storeTokenAndData(credential);
     } on FirebaseAuthException catch (e) {
-      print('olha o problema!');
-      print(e);
       if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
         result = 'Senha';
       } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
         result = 'Cadastro';
       } else if (e.code == 'invalid-email') {
-        print('The email address is badly formatted.');
         result = 'Formato';
       }
     } catch (e) {
@@ -80,7 +69,6 @@ class _CreateAccountState extends State<CreateAccount> {
 
   @override
   Widget build(BuildContext context) {
-    // TextEditingController _nameController = TextEditingController();
     TextEditingController _emailController = TextEditingController();
     TextEditingController _passwordController = TextEditingController();
 
@@ -273,11 +261,10 @@ class _CreateAccountState extends State<CreateAccount> {
                                                 dynamic result1 =
                                                     await createAccount(
                                                         email: _emailController
-                                                            .text,
+                                                            .text.trim(),
                                                         password:
                                                             _passwordController
                                                                 .text,
-                                                        name: 'Teste',
                                                         context: context);
 
                                                 print(result1);
@@ -315,18 +302,6 @@ class _CreateAccountState extends State<CreateAccount> {
                                                                   uid: result1
                                                                       .uid)),
                                                       (route) => false);
-
-                                                  // Navigator.of(context)
-                                                  //     .pushReplacement(
-                                                  //         MaterialPageRoute(
-                                                  //             builder:
-                                                  //                 (context) =>
-                                                  //                     HomePage(
-                                                  //                       setDarkMode:
-                                                  //                           widget.setDarkMode,
-                                                  //                       darkMode:
-                                                  //                           widget.darkMode,
-                                                  //                     )));
                                                 }
                                               } else {
                                                 setState(() {

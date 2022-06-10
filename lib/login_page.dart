@@ -18,15 +18,6 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-// class _LoginPageState extends State<LoginPage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-
-//     );
-//   }
-// }
-
 class _LoginPageState extends State<LoginPage> {
   Future<FirebaseApp> _initializeFirebase() async {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
@@ -36,9 +27,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Otimizador Acadêmico'),
-      // ),
       body: FutureBuilder(
         future: _initializeFirebase(),
         builder: (context, snapshot) {
@@ -48,9 +36,7 @@ class _LoginPageState extends State<LoginPage> {
               darkMode: widget.darkMode,
             );
           }
-          return Center(child: Text('Carregando...')
-              // CircularProgressIndicator(),
-              );
+          return Center(child: Text('Carregando...'));
         },
       ),
     );
@@ -98,7 +84,6 @@ class _LoginScreenState extends State<LoginScreen> {
         print("Usuário não encontrado.");
       }
     }
-
     return user;
   }
 
@@ -116,18 +101,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      // mainAxisAlignment: MainAxisAlignment.start,
-                      // crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         widget.darkMode == false
                             ? new Image.asset('assets/images/logo.png',
                                 width: 150.0, height: 150.0)
                             : new Image.asset('assets/images/logo3-invert.png',
                                 width: 150.0, height: 150.0),
-
-                        // SizedBox(
-                        //   height: 10,
-                        // ),
                         Text(
                           'Otimizador Acadêmico',
                           style: TextStyle(
@@ -139,41 +118,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontSize: 20,
                               fontWeight: FontWeight.bold),
                         ),
-
-                        // Text(
-                        //   'ENTRAR',
-                        //   style: TextStyle(
-                        //       letterSpacing: 1,
-                        //       color: Colors.black,
-                        //       fontSize: 16,
-                        //       fontWeight: FontWeight.bold),
-                        // ),
-
                         SizedBox(
                           height: 70,
                         ),
-
-                        // Image.asset('assets/images/logo2.png'),
-                        // const Text('ENTRAR',
-                        //     style: TextStyle(
-                        //         fontWeight: FontWeight.bold,
-                        //         fontSize: 16,
-                        //         letterSpacing: 1)),
-                        // SizedBox(
-                        //   height: 10,
-                        // ),
-                        // TextField(
-                        //     controller: _emailController,
-                        //     keyboardType: TextInputType.emailAddress,
-                        //     decoration: const InputDecoration(
-                        //         hintText: 'E-mail',
-                        //         prefixIcon: Icon(Icons.mail, color: Colors.black))),
                         SizedBox(
                           height: 10,
                         ),
-
                         TextFormField(
-                          // initialValue: 'Input text',
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Campo não preenchido!';
@@ -181,8 +132,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             return null;
                           },
                           controller: _emailController,
-                          // focusNode: myFocusNode,
-
                           decoration: InputDecoration(
                             labelText: 'E-mail',
                             border: OutlineInputBorder(),
@@ -222,7 +171,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         TextFormField(
                           obscureText: true,
-                          // initialValue: 'Input text',
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Campo não preenchido!';
@@ -259,11 +207,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 : null,
                           ),
                         ),
-
                         SizedBox(
                           height: 20,
                         ),
-
                         Row(
                           children: [
                             Expanded(
@@ -303,14 +249,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                               .validate()) {
                                             User? user =
                                                 await loginUsingEmailPassword(
-                                                    email:
-                                                        _emailController.text,
+                                                    email: _emailController.text
+                                                        .trim(),
                                                     password:
                                                         _passwordController
                                                             .text,
                                                     context: context);
-
-                                            print(user);
 
                                             if (user != null) {
                                               Navigator.of(context).pushReplacement(
@@ -327,7 +271,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                               setState(() {
                                                 a = 'não existe';
                                                 tryingLogin = false;
-                                                print(a);
                                               });
                                             }
                                           } else {
@@ -340,11 +283,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ],
                         ),
-
                         SizedBox(
                           height: 10,
                         ),
-
                         Row(
                           children: [
                             Expanded(
@@ -353,17 +294,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                       padding: MaterialStateProperty.all(
                                           const EdgeInsets.fromLTRB(
                                               0, 20, 0, 20)),
-                                      // backgroundColor:
-                                      //     MaterialStateProperty.all(
-                                      //         Colors.blue),
                                       shape: MaterialStateProperty.all<
                                               RoundedRectangleBorder>(
                                           RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(10),
                                       )),
-                                      // overlayColor: MaterialStateProperty.all(
-                                      //     const Color.fromARGB(
-                                      //         255, 107, 185, 248))
                                       side: MaterialStateProperty.all(
                                           BorderSide(
                                               color: Colors.blue,
@@ -380,18 +315,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                   onPressed: tryingLogin == true
                                       ? null
                                       : () {
-                                          print('to aqui hein');
-                                          // Navigator.push(
-                                          //   context,
-                                          //   MaterialPageRoute(
-                                          //       builder: (context) =>
-                                          //           CreateAccount(
-                                          //             setDarkMode:
-                                          //                 widget.setDarkMode,
-                                          //             darkMode: darkMode,
-                                          //           )),
-                                          // );
-
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
                                                   builder: (context) =>

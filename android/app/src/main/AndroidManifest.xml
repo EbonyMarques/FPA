@@ -1,10 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.otimizador_academico">
+    package="com.otimizador_academico">
    <application
-        android:label="otimizador_academico"
+        android:label="Otimizador Acadêmico"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <activity
+        <activity 
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"

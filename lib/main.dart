@@ -59,14 +59,10 @@ class _MyAppState extends State<MyApp> {
         darkMode = false;
       });
     }
-    print('tema');
-    print(theme);
   }
 
   void checkLogin() async {
     String? token = await authService.getToken();
-    print('é agora!');
-    print(token);
     token_final = token;
     if (token != null) {
       setState(() {
@@ -94,7 +90,6 @@ class _MyAppState extends State<MyApp> {
     }
 
     return MaterialApp(
-
         darkTheme: darkMode == true ? ThemeData.dark() : null,
         home: isLoading
             ? Scaffold(

@@ -1,4 +1,4 @@
-package com.example.otimizador_academico
+package com.otimizador_academico
 
 import io.flutter.embedding.android.FlutterActivity
 

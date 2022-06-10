@@ -31,14 +31,13 @@ class _HomePageState extends State<HomePage> {
   late bool darkMode;
   dynamic data = 0;
   String email = 'Carregando...';
-  String displayName = 'Carregando...';
 
   @override
   initState() {
     super.initState();
     darkMode = widget.darkMode;
     getDataLocal();
-    teste();
+    getEmail();
   }
 
   void sort() {
@@ -51,9 +50,6 @@ class _HomePageState extends State<HomePage> {
 
   void getDataLocal() async {
     Map<String, dynamic> data1 = await getData(widget.uid);
-    print('opaaa');
-    print(data1);
-
     dynamic data2 = [];
     dynamic data3 = [];
     setState(() {
@@ -64,20 +60,13 @@ class _HomePageState extends State<HomePage> {
           });
       selectedClasses = data3;
       sort();
-      print('hahaha');
-      print(selectedClasses);
     });
   }
 
-  void teste() async {
-    String? d = await authService.getDisplayName();
+  void getEmail() async {
     String? e = await authService.getEmail();
 
     setState(() {
-      if (d is String) {
-        displayName = d as String;
-      }
-
       email = e as String;
     });
   }
@@ -85,14 +74,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     AuthService authService = AuthService();
-    print('verificando');
-    print(widget.darkMode);
-    print(widget.uid);
-    print(data);
-    print(selectedClasses);
-    print('email');
-    print(displayName);
-    print(email);
 
     return Scaffold(
       drawer: Drawer(
@@ -121,19 +102,14 @@ class _HomePageState extends State<HomePage> {
                     ),
               title: Text(darkMode ? 'Modo claro' : 'Modo escuro'),
               onTap: () async {
-                print('to aqui');
                 String? theme = await authService.getTheme();
-                print('vamos ver');
-                print(theme);
                 if (theme == 'light') {
-                  print('troquei 1');
                   authService.setThemeMode('dark');
                   widget.setDarkMode(true);
                   setState(() {
                     darkMode = true;
                   });
                 } else if (theme == 'dark') {
-                  print('troquei 2');
                   authService.setThemeMode('light');
                   widget.setDarkMode(false);
                   setState(() {
@@ -235,7 +211,6 @@ class _HomePageState extends State<HomePage> {
                                     );
                                   }));
                                   setState(() {
-                                    print(result);
                                     data = result;
                                     dynamic data100 = [];
                                     result.forEach((d) => {
@@ -361,7 +336,6 @@ class _HomePageState extends State<HomePage> {
                                       );
                                     }));
                                     setState(() {
-                                      print(result);
                                       data = result;
                                       dynamic data100 = [];
                                       result.forEach((d) => {
