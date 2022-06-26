@@ -2,9 +2,6 @@
 Repositório do projeto desenvolvido na disciplina de Fundamentos de Programação Aplicada do Programa de Pós-Graduação em Informática Aplicada da Universidade Federal Rural de Pernambuco.
 
 Tela de login:<br>
-<!-- Solarized dark             |  Solarized Ocean
-:-------------------------:|:-------------------------:
-![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/login%20screen.png)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/login%20screen.png) -->
 ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/login%20screen.png)
 
 Tela de criação de conta:<br>
@@ -27,3 +24,7 @@ Tela de seleção de disciplinas:<br>
 
 Tela de recomendação de disciplinas:<br>
 ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/recommended%20classes%20screen.png)
+
+<!-- Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/login%20screen.png)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/login%20screen.png) -->
