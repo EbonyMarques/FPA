@@ -10,7 +10,7 @@ Tela de login:
 Tela de criação de conta:
 ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/create%20account%20screen.png)
 
-Tela principal sem disciplinas selecionadas e sem drawer aberto:\n
+Tela principal sem disciplinas selecionadas e sem drawer aberto:<br>
 ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/Home%20Page%20vazia%20sem%20drawer.png)
 
 Tela principal sem disciplinas selecionadas e com drawer aberto:
