@@ -8,7 +8,7 @@ Link para página do aplicativo na Play Store: https://play.google.com/store/app
 
 Tela de login:<br>
 :-------------------------:|:-------------------------:
-![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/1.jpg)  |  [alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/login%20screen.png)
+![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/1.jpg)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/login%20screen.png)
 
 Tela de criação de conta:<br>
 ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/create%20account%20screen.png)
@@ -33,4 +33,4 @@ Tela de recomendação de disciplinas:<br>
 
 Solarized dark             |  Solarized Ocean
 :-------------------------:|:-------------------------:
-![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/1.png)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/login%20screen.png)
+![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/1.jpg)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/login%20screen.png)
