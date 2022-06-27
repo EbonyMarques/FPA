@@ -25,17 +25,31 @@ Tela             |  Diagrama
 ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/3.jpg)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/Home%20Page%20vazia%20sem%20drawer.png)
 
 Tela principal sem disciplinas selecionadas e com drawer aberto:<br>
-![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/home%20page%20screen%20vazia.png)
+
+Tela             |  Diagrama
+:-------------------------:|:-------------------------:
+![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/4.jpg)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/home%20page%20screen%20vazia.png)
 
 Tela principal com disciplinas selecionadas e sem drawer aberto:<br>
-![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/home%20screen%20sem%20drawer.png)
+
+Tela             |  Diagrama
+:-------------------------:|:-------------------------:
+![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/5.jpg)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/home%20screen%20sem%20drawer.png)
 
 Tela principal com disciplinas selecionadas e com drawer aberto:<br>
-![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/home%20screen%20com%20drawer.png)
+
+Tela             |  Diagrama
+:-------------------------:|:-------------------------:
+![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/6.jpg)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/home%20screen%20com%20drawer.png)
 
 Tela de seleção de disciplinas:<br>
-![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/select%20classes%20screen.png)
+
+Tela             |  Diagrama
+:-------------------------:|:-------------------------:
+![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/7.jpg)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/select%20classes%20screen.png)
 
 Tela de recomendação de disciplinas:<br>
-![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/recommended%20classes%20screen.png)
 
+Tela             |  Diagrama
+:-------------------------:|:-------------------------:
+![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/8.jpg)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/recommended%20classes%20screen.png)
