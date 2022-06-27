@@ -7,6 +7,8 @@ Link para página do aplicativo na Play Store: https://play.google.com/store/app
 <h2>Diagramas</h2>
 
 Tela de login:<br>
+
+Tela             |  Diagrama
 :-------------------------:|:-------------------------:
 ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/1.jpg)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/login%20screen.png)
 
@@ -31,6 +33,3 @@ Tela de seleção de disciplinas:<br>
 Tela de recomendação de disciplinas:<br>
 ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/recommended%20classes%20screen.png)
 
-Solarized dark             |  Solarized Ocean
-:-------------------------:|:-------------------------:
-![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/1.jpg)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/login%20screen.png)
