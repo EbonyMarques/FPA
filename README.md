@@ -6,7 +6,7 @@ Link para página do aplicativo na Play Store: https://play.google.com/store/app
 
 <h2>Diagramas</h2>
 
-Tela de login:<br>
+<h3>Tela de login</h3>
 
 Tela             |  Diagrama
 :-------------------------:|:-------------------------:
