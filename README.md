@@ -13,10 +13,16 @@ Tela             |  Diagrama
 ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/1.jpg)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/login%20screen.png)
 
 Tela de criação de conta:<br>
-![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/create%20account%20screen.png)
+
+Tela             |  Diagrama
+:-------------------------:|:-------------------------:
+![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/2.jpg)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/create%20account%20screen.png)
 
 Tela principal sem disciplinas selecionadas e sem drawer aberto:<br>
-![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/Home%20Page%20vazia%20sem%20drawer.png)
+
+Tela             |  Diagrama
+:-------------------------:|:-------------------------:
+![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/3.jpg)  |  ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/Home%20Page%20vazia%20sem%20drawer.png)
 
 Tela principal sem disciplinas selecionadas e com drawer aberto:<br>
 ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/home%20page%20screen%20vazia.png)
