@@ -5,6 +5,7 @@ Repositório do projeto desenvolvido na disciplina de Fundamentos de Programaç�
 Link para página do aplicativo na Play Store: https://play.google.com/store/apps/details?id=com.otimizador_academico.
 
 <h2>Diagramas</h2>
+
 Tela de login:<br>
 ![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/login%20screen.png)
 
