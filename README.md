@@ -1,6 +1,9 @@
 # Otimizador Acadêmico
 Repositório do projeto desenvolvido na disciplina de Fundamentos de Programação Aplicada do Programa de Pós-Graduação em Informática Aplicada da Universidade Federal Rural de Pernambuco.
 
+<h2>Apresentação do aplicativo</h2>
+Link para o vídeo de apresentação: https://drive.google.com/file/d/11tpQQ386IHg-8HtoL7C0cOPAbDHzpb5g/view?usp=sharing.
+
 <h2>Play Store</h2>
 Link para página do aplicativo na Play Store: https://play.google.com/store/apps/details?id=com.otimizador_academico.
 
