@@ -2,7 +2,7 @@
 Repositório do projeto desenvolvido na disciplina de Fundamentos de Programação Aplicada do Programa de Pós-Graduação em Informática Aplicada da Universidade Federal Rural de Pernambuco.
 
 <h2>Apresentação do aplicativo</h2>
-Link para o vídeo de apresentação/pitch: https://drive.google.com/file/d/1v_UT-SFX1eIESGrYYbVrVcPfDx07-lC-/view?usp=sharing.
+Link para o vídeo de apresentação/pitch: https://drive.google.com/file/d/1v_UT-SFX1eIESGrYYbVrVcPfDx07-lC-/view?usp=sharing.<br>
 Link para o vídeo de demonstração: https://drive.google.com/file/d/1AWpKhRP-ec7-E_aW8leIExMCGw5Q5Tv3/view?usp=sharing.
 
 <h2>Play Store</h2>
