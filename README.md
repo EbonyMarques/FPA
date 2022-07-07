@@ -10,6 +10,10 @@ Link para página do aplicativo na Play Store: https://play.google.com/store/app
 
 <h2>Diagramas</h2>
 
+<h3>Diagrama de Navegação de Telas</h3>
+
+![alt text](https://raw.githubusercontent.com/EbonyMarques/FPA/main/rep/diagrama%20de%20navega%C3%A7%C3%A3o.png)
+
 <h3>Tela de login</h3>
 
 Tela             |  Diagrama
